@@ -1,0 +1,23 @@
+{
+  "name": "devgrid",
+  "version": "1.0.0",
+  "description": "devGrid Challenge",
+  "main": "server.js",
+  "scripts": {
+    "test": "test.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matheuspavin/devgrid.git"
+  },
+  "author": "Matheus Pavin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matheuspavin/devgrid/issues"
+  },
+  "homepage": "https://github.com/matheuspavin/devgrid#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
