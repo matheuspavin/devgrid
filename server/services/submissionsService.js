@@ -3,7 +3,8 @@ let output = "";
 
 
 const createSubmission = async function (submission) {
-    const parsedSubmission = submission.split('\n');
+    output = "";
+    const parsedSubmission = submission.toString().split('\n');
     const cases = parsedSubmission.shift();
     const outputs = {};
     for (line of parsedSubmission) {
@@ -23,19 +24,19 @@ const createSubmission = async function (submission) {
             }
         }
     }
-    parseOutput(outputs);
+    await parseOutput(outputs);
     return output;
 };
 
 
 const getLatestSubmission = async function () {
-
+    return output;
 };
 
 
 const parseOutput = function (outputs) {
     for (object in outputs) {
-        output += outputs[object].toString();
+        output += outputs[object].toString().replace(/,/g, ' ');
         output += '\n'
     }
 };

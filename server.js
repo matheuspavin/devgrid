@@ -21,9 +21,9 @@ app.all('*', function (req, res, next) {
     next();
 });
 
-// app.use('/cache', cacheRoute);
+app.use('/submissions', submissionsRoute);
 app.get('/', function (req, res) {
-    // res.redirect('cache');
+    res.redirect('submissions');
 });
 
 
