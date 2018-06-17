@@ -5,7 +5,7 @@ const app = express();
 const port = process.env.PORT || 3700;
 
 
-const cacheRoute = require('./server/routes/cacheRoute');
+const submissionsRoute = require('./server/routes/submissionsRoute');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -21,9 +21,9 @@ app.all('*', function (req, res, next) {
     next();
 });
 
-app.use('/cache', cacheRoute);
+// app.use('/cache', cacheRoute);
 app.get('/', function (req, res) {
-    res.redirect('cache');
+    // res.redirect('cache');
 });
 
 
