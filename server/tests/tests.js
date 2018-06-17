@@ -11,6 +11,7 @@ describe('Submission Tests tests', function () {
             const submission = await submissionsService.createSubmission(newSubmission.submission);
             // const caches = await cacheService.getAll();
             // expect(cache.key).to.be.equal(newCache.key);
+            ocnsole.log(submission);
             expect(submission).to.be.equal(1);
         });
     });

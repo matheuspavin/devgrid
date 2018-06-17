@@ -1,15 +1,13 @@
 
+let output = "";
+
 
 const createSubmission = async function (submission) {
     const parsedSubmission = submission.split('\n');
     const cases = parsedSubmission.shift();
     const outputs = {};
     for (line of parsedSubmission) {
-        const parsedLine = line.split(' ');
-        const contestant = parsedLine[0];
-        const question = parsedLine[1];
-        const time = parsedLine[2];
-        const letter = parsedLine[3];
+        const [contestant, question, time, letter] = line.split(' ');
         if (outputs.hasOwnProperty(contestant)) {
             if (letter === 'C') {
                 outputs[contestant][1]++;
@@ -22,13 +20,27 @@ const createSubmission = async function (submission) {
                 outputs[contestant] = [contestant, 1, time]
             } else if (letter === 'I') {
                 outputs[contestant] = [contestant, 0, 20];
-                console.log(outputs)
             }
         }
     }
-    return submission;
+    parseOutput(outputs);
+    return output;
+};
+
+
+const getLatestSubmission = async function () {
+
+};
+
+
+const parseOutput = function (outputs) {
+    for (object in outputs) {
+        output += outputs[object].toString();
+        output += '\n'
+    }
 };
 
 module.exports = {
-    createSubmission
+    createSubmission,
+    getLatestSubmission
 }
