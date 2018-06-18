@@ -18,12 +18,12 @@
 ### IMPORTANT
 **Inside the /server/utils folder, it has a file with the Requests set up. It is called Requests.json**
 
-**The username, intended to create a Gist, is stored in config.username and config.password. It will need a working username/password to authorize and create a gist.**
+**The username, intended to create a Gist, is stored in /server/config/config.js username and password. It will need a working username/password to authorize and create a gist.**
 
 ### Running the tests
 1. In the main folder run the following command: **npm test**
 1. It will run, stop and provide the output on the terminal
-1. The tests http is mocked, so no gist repository will be created.
+1. The tests http is mocked, so no gist repository will be created. Also, tests use static username/password, necessary for the tests, so please do not change these properties.
 
 
 ## ENDPOINTS
