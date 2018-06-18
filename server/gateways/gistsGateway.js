@@ -1,15 +1,15 @@
 const rest = require("../infra/rest");
+const config = require("../config/config");
 
-const url = "https://api.github.com/gists";
+const url = config.url;
 
 const createGist = async function (gist, user) {
     if (!user.username || !user.password) throw 'Needs username and password';
-    const auth = 'Basic ' + new Buffer(user.username + ':' + user.password).toString('base64');
     const options = {
         url: url,
         method: "POST",
         body: gist.body,
-        headers: { 'user-agent': 'node.js', Authorization: auth },
+        headers: { 'user-agent': 'node.js', Authorization: authorization(user) },
         json: true,
     };
     return await rest(options);
@@ -18,7 +18,7 @@ const createGist = async function (gist, user) {
 const getGistComments = async function (gist, user) {
     const headers = { 'user-agent': 'node.js'};
     if (user.username && user.password) {
-        headers.Authorization = 'Basic ' + new Buffer(user.username + ':' + user.password).toString('base64');
+        headers.Authorization = authorization(user);
     }
     const options = {
         url: url + `/${gist}/comments`,
@@ -27,7 +27,11 @@ const getGistComments = async function (gist, user) {
         json: true,
     };
     return await rest.get(options);
-}
+};
+
+const authorization = function (user) {
+   return 'Basic ' + new Buffer(user.username + ':' + user.password).toString('base64');
+};
 
 module.exports = {
     createGist,
