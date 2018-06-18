@@ -1,7 +1,6 @@
 const request = require('request');
 
 function get (options) {
-    // options.gzip = true;
     return new Promise(function (resolve, reject) {
         request(options, function (error, response, body) {
             if (error) {

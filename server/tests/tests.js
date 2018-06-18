@@ -27,9 +27,9 @@ describe('Submission Tests tests', function () {
 
     describe.only('Gists tests', function () {
         it('Should create a new gist', async function () {
-            const savePurchaseStub = sinon.stub(gistsGateway, "getGistComments").callsFake(gistMock.gistComments);
+            sinon.stub(gistsGateway, "getGistComments").callsFake(gistMock.gistComments);
             const created = await gistsService.getGistComments();
-            expect(created).to.equal(gistMock.gistComments());
+            expect(created[0].body).to.equal(gistMock.gistComments()[0].body);
         });
         // it('Should output the latest submission', async function () {
         //     const output = await submissionsService.getLatestSubmission();

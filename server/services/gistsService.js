@@ -2,11 +2,22 @@ const gistsGateway = require('../gateways/gistsGateway');
 const config = require('../config/config');
 
 const createGist = function (content) {
-    const customer = {};
-    customer.user = config.gistUser;
-    customer.password = config.password;
+    const user = {};
+    user.username = config.gistUser;
+    user.password = config.password;
+    const gist = {};
+    gist.body ={
+        "description": content.description,
+        "public": content.public,
+        "files": {
+            [content.name]: {
+                "content": content.gistContent
+            }
+        }
+    };
+
     try {
-        return gistsGateway.createGist(customer, content);
+        return gistsGateway.createGist(user, gist);
     } catch (err) {
         console.log(err);
     }

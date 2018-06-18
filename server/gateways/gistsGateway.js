@@ -2,31 +2,13 @@ const rest = require("../infra/rest");
 
 let url = "https://api.github.com/gists";
 
-let createGist = async function (customer, gist) {
-    var username = 'matheuspavin';
-    var password = 'dialogys123';
-    var auth = 'Basic ' + new Buffer(username + ':' + password).toString('base64');
-
-    var header = { 'Host': 'www.example.com', 'Authorization': auth };
-
-
+let createGist = async function (user, gist) {
+    var auth = 'Basic ' + new Buffer(user.username + ':' + user.password).toString('base64');
+    if (!user.username || !user.password) throw 'Needs username and password';
     let options = {
         url: url,
         method: "POST",
-        body: {
-            "description": "the description for this gist",
-            "public": true,
-            "files": {
-                "file1.txt": {
-                    "content": "String file contents"
-                }
-            }
-        },
-        files: {
-            "file1.txt": {
-                "content": "String file contents"
-            }
-        },
+        body: gist.body,
         headers: { 'user-agent': 'node.js', Authorization: auth },
         json: true,
     };

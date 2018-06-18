@@ -3,7 +3,7 @@ const gistsService = require('../services/gistsService');
 
 router.post('/', async (req, res, next) => {
 	const body = req.body;
-	const result = await gistsService.createGist(body.content);
+	const result = await gistsService.createGist(body);
 	return res.send(result);
 });
 
