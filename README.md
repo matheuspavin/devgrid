@@ -1,4 +1,4 @@
-# DevGrid Test - Matheus Pavin Pedroso
+### DevGrid Test - Matheus Pavin Pedroso
 
 **Use at will, but quote, so we're all happy.**
 
@@ -10,11 +10,14 @@
 
 **This project is intended to run on unix systems**
 
+### Running the server
+
 1. In the main folder, run the following command: **npm install**
 1. In the main folder run the following command: **npm start**
 
 ### IMPORTANT
 **Inside the /server/utils folder, it has a file with the Requests set up. It is called Requests.json**
+
 **The username, intended to create a Gist, is stored in config.username and config.password. It will need a working username/password to authorize and create a gist.**
 
 ### Running the tests
