@@ -7,10 +7,7 @@ const gistsGateway = require('../gateways/gistsGateway');
 const gistsService = require('../services/gistsService');
 const submissionsService = require('../services/submissionsService');
 
-
-
 describe('Submission Tests tests', function () {
-
     describe('Contestant submissions', function () {
         it('Should input a new submission', async function () {
             const newSubmission = {

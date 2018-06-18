@@ -24,10 +24,6 @@ app.all('*', function (req, res, next) {
 
 app.use('/submissions', submissionsRoute);
 app.use('/gists', gistsRoute);
-// app.get('/', function (req, res) {
-//     res.redirect('submissions');
-// });
-
 
 const errorHandler = function (err, req, res, next) {
     console.error('Error:', err);
