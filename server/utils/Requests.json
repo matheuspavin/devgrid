@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "fdef526d-60b3-42d1-a00d-1c10ab211fdd",
+		"name": "devGrid",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create a Submission",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "submission",
+							"value": "1\n1 2 10 I\n3 1 11 C\n1 2 19 R\n1 2 21 C\n1 1 25 C",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3700/submissions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3700",
+					"path": [
+						"submissions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3700/submissions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3700/submissions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3700",
+					"path": [
+						"submissions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3700/gists",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1521.3 Safari/537.36"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "description",
+							"value": "Description of the gist",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "public",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Final gist",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "gistContent",
+							"value": "Gists are cool",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3700/gists",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3700",
+					"path": [
+						"gists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3700/gists/fa4ad4071fcd10df7700882d8bc0ed4f/comments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3700/gists/fa4ad4071fcd10df7700882d8bc0ed4f/comments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3700",
+					"path": [
+						"gists",
+						"fa4ad4071fcd10df7700882d8bc0ed4f",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
