@@ -6,6 +6,7 @@ const port = process.env.PORT || 3700;
 
 
 const submissionsRoute = require('./server/routes/submissionsRoute');
+const gistsRoute = require('./server/routes/gistsRoute');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -22,9 +23,10 @@ app.all('*', function (req, res, next) {
 });
 
 app.use('/submissions', submissionsRoute);
-app.get('/', function (req, res) {
-    res.redirect('submissions');
-});
+app.use('/gists', gistsRoute);
+// app.get('/', function (req, res) {
+//     res.redirect('submissions');
+// });
 
 
 const errorHandler = function (err, req, res, next) {
