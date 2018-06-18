@@ -1,11 +1,11 @@
 const rest = require("../infra/rest");
 
-let url = "https://api.github.com/gists";
+const url = "https://api.github.com/gists";
 
-let createGist = async function (user, gist) {
-    var auth = 'Basic ' + new Buffer(user.username + ':' + user.password).toString('base64');
+const createGist = async function (gist, user) {
     if (!user.username || !user.password) throw 'Needs username and password';
-    let options = {
+    const auth = 'Basic ' + new Buffer(user.username + ':' + user.password).toString('base64');
+    const options = {
         url: url,
         method: "POST",
         body: gist.body,
@@ -15,11 +15,15 @@ let createGist = async function (user, gist) {
     return await rest(options);
 };
 
-let getGistComments = async function (gist) {
-    let options = {
+const getGistComments = async function (gist, user) {
+    const headers = { 'user-agent': 'node.js'};
+    if (user.username && user.password) {
+        headers.Authorization = 'Basic ' + new Buffer(user.username + ':' + user.password).toString('base64');
+    }
+    const options = {
         url: url + `/${gist}/comments`,
         method: "GET",
-        headers: { 'user-agent': 'node.js' },
+        headers: headers,
         json: true,
     };
     return await rest.get(options);

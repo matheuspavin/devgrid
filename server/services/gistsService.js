@@ -7,23 +7,22 @@ const createGist = function (content) {
     user.password = config.password;
     const gist = {};
     gist.body ={
-        "description": content.description,
-        "public": content.public,
-        "files": {
+        description: content.description,
+        public: content.public,
+        files: {
             [content.name]: {
-                "content": content.gistContent
+                content: content.gistContent
             }
         }
     };
-
     try {
-        return gistsGateway.createGist(user, gist);
+        return gistsGateway.createGist(gist, user);
     } catch (err) {
         console.log(err);
     }
 };
 
-const getGistComments = async function (gist) {
+const getGistComments = async function (gist, user) {
     return await gistsGateway.getGistComments(gist);
 };
 
