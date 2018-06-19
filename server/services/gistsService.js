@@ -22,7 +22,7 @@ const createGist = function (content) {
     }
 };
 
-const getGistComments = async function (gist, user) {
+const getGistComments = async function (gist) {
     return await gistsGateway.getGistComments(gist);
 };
 

@@ -1,7 +1,7 @@
 var config = {};
 
-const user = 'xxxx';
-const password = 'xxxx';
+const user = 'matheuspavin';
+const password = 'dialogys123';
 
 config.url = 'https://api.github.com/gists';
 

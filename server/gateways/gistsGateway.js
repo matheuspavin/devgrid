@@ -16,17 +16,13 @@ const createGist = async function (gist, user) {
 };
 
 const getGistComments = async function (gist, user) {
-    const headers = { 'user-agent': 'node.js'};
-    if (user.username && user.password) {
-        headers.Authorization = authorization(user);
-    }
     const options = {
         url: url + `/${gist}/comments`,
         method: "GET",
-        headers: headers,
+        headers: { 'user-agent': 'node.js'},
         json: true,
     };
-    return await rest.get(options);
+    return await rest(options);
 };
 
 const authorization = function (user) {
