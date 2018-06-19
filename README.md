@@ -10,6 +10,8 @@
 
 **This project is intended to run on unix systems**
 
+** The machine should have npm installed. If If you do not have it installed, visit: https://www.npmjs.com/
+
 ### Running the server
 
 1. In the main folder, run the following command: **npm install**
